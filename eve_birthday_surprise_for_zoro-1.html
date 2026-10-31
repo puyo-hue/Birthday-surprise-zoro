@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#170307">
+<title>Happy Birthday, Zorooo ❤️</title>
+<style>
+  :root { --red:#ff3155; --pink:#ffb1bf; --cream:#fff0e7; --dark:#170307; }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; min-height:100vh; color:var(--cream); font-family:Georgia, 'Times New Roman', serif;
+    background:radial-gradient(ellipse at top, #4b0717 0%, #21030b 42%, #080207 100%);
+    overflow-x:hidden;
+  }
+  .stars, .hearts { position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:0; }
+  .star { position:absolute; color:#ffb4c1; animation:twinkle 2.4s infinite ease-in-out; }
+  .heart { position:absolute; bottom:-50px; color:#ff4265; opacity:.8; animation:floatUp linear forwards; }
+  @keyframes twinkle { 0%,100%{opacity:.25;transform:scale(.8)} 50%{opacity:1;transform:scale(1.25)} }
+  @keyframes floatUp { to { transform:translateY(-115vh) rotate(25deg); opacity:0; } }
+  main { position:relative; z-index:1; width:min(720px,100%); margin:auto; padding:22px 16px 50px; }
+  .topline { text-align:center; color:#ff8196; letter-spacing:.22em; text-transform:uppercase; font-size:.72rem; margin:8px 0 20px; }
+  .card {
+    border:1px solid #ff647c80; border-radius:24px; padding:clamp(22px,6vw,42px);
+    background:linear-gradient(145deg,#300712eF,#120309f5); box-shadow:0 0 35px #ff214326, inset 0 0 30px #ff34520d;
+    text-align:center; margin:16px 0; backdrop-filter:blur(8px);
+  }
+  .rose { font-size:2.2rem; filter:drop-shadow(0 0 10px #ff2448); }
+  h1 { color:#ffb0bd; font-size:clamp(2.1rem,8vw,4.2rem); line-height:1.05; margin:12px 0; text-shadow:0 0 18px #ff254a80; }
+  h2 { color:#ffb1bf; font-size:clamp(1.55rem,5vw,2.25rem); margin:0 0 15px; }
+  p { line-height:1.75; font-size:1.05rem; }
+  .sub { color:#f5cbd1; font-style:italic; }
+  button {
+    border:1px solid #ff8196; border-radius:999px; padding:13px 22px; margin:7px;
+    color:#fff5f6; font:inherit; font-weight:bold; background:linear-gradient(135deg,#b30d32,#ef3154);
+    box-shadow:0 0 18px #ff315540; cursor:pointer; transition:transform .2s, box-shadow .2s;
+  }
+  button:hover { transform:translateY(-2px) scale(1.02); box-shadow:0 0 24px #ff315580; }
+  button.secondary { background:#290711; }
+  .hidden { display:none !important; }
+  .envelope {
+    margin:22px auto; width:min(270px,85%); height:170px; position:relative; cursor:pointer;
+    border-radius:8px; background:linear-gradient(135deg,#ffd9d2,#b96872); box-shadow:0 12px 28px #0008;
+    display:grid; place-items:center; color:#7c0d25; font-size:3rem;
+  }
+  .envelope:before { content:""; position:absolute; inset:0; background:linear-gradient(145deg,transparent 49%,#d9989d 50%) left/50% 100% no-repeat,linear-gradient(215deg,transparent 49%,#e9afb1 50%) right/50% 100% no-repeat; border-radius:8px; }
+  .seal { position:relative; z-index:1; border-radius:50%; background:#a50e2c; color:#ffe5e7; width:53px; height:53px; display:grid; place-items:center; box-shadow:0 0 12px #a50e2c; font-size:1.6rem; }
+  .letter { text-align:left; padding:20px; border-radius:14px; background:#fff0df; color:#4d101b; box-shadow:inset 0 0 25px #b66c4a25; }
+  .letter p { font-size:1rem; }
+  .question { font-size:clamp(1.4rem,5vw,2.2rem); font-weight:bold; color:#ffe5e8; }
+  .yes { min-width:100px; }
+  .no { background:#35101a; }
+  .cake { font-size:4.3rem; margin:12px 0; animation:bob 2s infinite ease-in-out; }
+  @keyframes bob { 50%{transform:translateY(-7px)} }
+  .footer { text-align:center; color:#d995a3; font-size:.82rem; margin-top:26px; }
+  .sparkle { color:#ff879a; }
+  @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; } }
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div><div class="hearts" id="hearts"></div>
+<main>
+  <div class="topline">A little birthday magic, made with love</div>
+  <section class="card" id="welcome">
+    <div class="rose">🌹 ❤️ 🌹</div>
+    <h1>Happy Birthday<br>To Zorooo!</h1>
+    <p class="sub">Someone has a little surprise for you… ❤️</p>
+    <button onclick="showSection('envelopeSection')">Open Your Surprise 💌</button>
+  </section>
+
+  <section class="card hidden" id="envelopeSection">
+    <h2>A letter for you, Zoro 💌</h2>
+    <p class="sub">Tap the envelope to open it.</p>
+    <div class="envelope" role="button" tabindex="0" aria-label="Open birthday letter" onclick="openLetter()" onkeydown="if(event.key==='Enter'||event.key===' '){openLetter()}">
+      <div class="seal">♥</div>
+    </div>
+    <div id="letter" class="letter hidden">
+      <p>Dear Zorooo, ❤️</p>
+      <p><strong>HAPPIEST BIRTHDAYYYYY! 🎂🌹</strong></p>
+      <p>I hope your day is filled with happiness, laughter, and all the little things that make you smile. May your dreams come true, may life bring you beautiful surprises, and may you always remember how special you are.</p>
+      <p>Thank you for being YOU. You deserve so much happiness, today and every day. Keep shining, keep smiling, and never stop being your wonderful self. ❤️</p>
+      <p>Have the most amazing birthday, Zorooo!</p>
+      <p style="text-align:right;font-style:italic">With lots of love,<br><strong>Eve 💗</strong></p>
+    </div>
+    <button class="hidden" id="letterNext" onclick="showSection('questionSection')">There's more… ✨</button>
+  </section>
+
+  <section class="card hidden" id="questionSection">
+    <div class="rose">👑 💖 👑</div>
+    <p class="question">ARE YOU READY<br>FOR YOUR SURPRISE?</p>
+    <p class="sub">Choose carefully… just kidding. 😌❤️</p>
+    <button class="yes" onclick="showSection('finalSection')">YES ❤️</button>
+    <button class="no" id="noBtn" onclick="noMessage()">NO 🙈</button>
+    <p id="noReply" class="sub hidden">Hehe, the surprise is still waiting for you! 😭💗 Try again?</p>
+  </section>
+
+  <section class="card hidden" id="finalSection">
+    <div class="cake">🎂</div>
+    <h1>Happy Birthday,<br>Zorooo! ❤️</h1>
+    <p>May this new chapter bring you endless happiness, exciting adventures, good health, and a thousand reasons to smile.</p>
+    <p>May every wish you make today find its way to you. You deserve the world and so much more. 🌹✨</p>
+    <p style="font-size:1.35rem;color:#ffb1bf">With lots of love, Eve ❤️</p>
+    <div style="font-size:2rem">🎁 🌹 🎈 💝 🎈 🌹 🎁</div>
+    <button onclick="celebrate()">One more birthday sparkle ✨</button>
+    <p id="sparkleMsg" class="hidden">✨🎉 HAPPY BIRTHDAYYYYY, ZOROOO!!! 🎉✨</p>
+  </section>
+  <div class="footer">Made especially for Zoro, from Eve ❤️</div>
+</main>
+<script>
+  const starBox = document.getElementById('stars');
+  for (let i=0;i<36;i++) {
+    const s=document.createElement('span'); s.className='star'; s.textContent=Math.random()>.5?'✦':'·';
+    s.style.left=Math.random()*100+'%'; s.style.top=Math.random()*100+'%';
+    s.style.animationDelay=Math.random()*3+'s'; s.style.fontSize=(8+Math.random()*15)+'px'; starBox.appendChild(s);
+  }
+  function floatHeart() {
+    const h=document.createElement('span'); h.className='heart'; h.textContent=['♥','♡','❤'][Math.floor(Math.random()*3)];
+    h.style.left=Math.random()*100+'%'; h.style.fontSize=(14+Math.random()*22)+'px';
+    h.style.animationDuration=(5+Math.random()*5)+'s'; document.getElementById('hearts').appendChild(h);
+    setTimeout(()=>h.remove(),10500);
+  }
+  setInterval(floatHeart,650);
+  function showSection(id) {
+    ['welcome','envelopeSection','questionSection','finalSection'].forEach(x=>document.getElementById(x).classList.add('hidden'));
+    document.getElementById(id).classList.remove('hidden');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  function openLetter() {
+    document.getElementById('letter').classList.remove('hidden');
+    document.getElementById('letterNext').classList.remove('hidden');
+  }
+  function noMessage() {
+    document.getElementById('noReply').classList.remove('hidden');
+    const b=document.getElementById('noBtn');
+    b.textContent=['NO 🙈','Are you sure? 🥺','One tiny YES? 💗'][Math.floor(Math.random()*3)];
+  }
+  function celebrate() {
+    document.getElementById('sparkleMsg').classList.remove('hidden');
+    for(let i=0;i<28;i++) setTimeout(floatHeart,i*80);
+  }
+</script>
+</body>
+</html>
